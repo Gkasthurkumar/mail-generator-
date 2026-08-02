@@ -56,12 +56,7 @@ def main():
     # ---------------------------------------------------------------- Sidebar
     with st.sidebar:
         st.header("Settings")
-        api_key = st.text_input(
-            "Groq API key",
-            type="password",
-            value=os.getenv("GROQ_API_KEY", ""),
-            help="Get a free key at https://console.groq.com. Stored only for this session.",
-        )
+        api_key = st.secrets.get("GROQ_API_KEY", os.getenv("GROQ_API_KEY", ""))
         model = st.selectbox(
             "Model",
             ["llama-3.3-70b-versatile", "llama-3.1-8b-instant"],
@@ -100,7 +95,8 @@ def main():
 
     # -------------------------------------------------------------- Guards
     if not api_key:
-        st.error("Please enter your Groq API key in the sidebar.")
+        st.error("Groq API key is not configured.")
+        st.info("Add GROQ_API_KEY to Streamlit Secrets.")
         return
     if job_input_mode == "Paste job description" and not job_text_area.strip():
         st.error("Please paste a job description.")
