@@ -240,8 +240,7 @@ def _render_generate_tab(api_key: str, model: str, sender_name: str):
                 "**⚠️ Missing skills:** " + ", ".join(match_result["missing_skills"])
             )
 
-    if portfolio_links:
-        st.markdown("**🔗 Relevant portfolio links:** " + ", ".join(portfolio_links))
+    
 
     st.divider()
     st.subheader(f"✉️ Your {tone} Cold Email")
