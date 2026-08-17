@@ -1,6 +1,30 @@
+# Virtual environment
 .venv/
-__pycache__/
-.ipynb_checkpoints/
-vectorstore/
+venv/
+env/
+
+# Environment variables / secrets
 .env
-*.pyc
+.env.*
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Vector databases / generated files
+vectorstore/
+chroma/
+*.db
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+.streamlit/secrets.toml
+.env
+.venv/
